@@ -3,7 +3,7 @@
 # Description
 This project was to practice my skills using third-party APIs / javaScript libraries like jquery. I was given starter code and had to update my HTML and javaScript to build a day planner.
 
-The dayplanner should use event delegation for the save buttons, for loops, functions, adding a class to an element, and local storage.
+The day planner should use event delegation for the save buttons, for loops, functions, adding a class to an element, and local storage.
 
 # Instructions
 

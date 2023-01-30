@@ -29,34 +29,35 @@
 var dateEl = dayjs().format('MMMM D YYYY h:m A');
 $('#currentDay').text(dateEl); //setting current date and time in the header
 var buttonEl = $('.btn'); //class within each div
-var hourEL = dayjs().hour();
+var hourEl = dayjs().hour(); //calling the current hour
 
-for (let i = 0; i < i < 18; i++) {
+//for loop to run through each hour to determine if it's past, present or future compared to the current hour
+for (let i = 9; i < 18; i++) {
   var hour = $('#hour-' + i)
-  if (i < hourEL) {
+  if (i < hourEl) {
     hour.addClass('past');
   }
-  if (i == hourEL) {
+  if (i == hourEl) {
     hour.addClass('present')
   }
-  if (i > hourEL) {
+  if (i > hourEl) {
     hour.addClass('future')
+    
+    var textArea = localStorage.getItem('#hour-' + i);
+    hour.children('textarea').val(textArea);
+    console.log(textArea);
   }
 }
 
-// adding submissions to local storage
-// var textArea = localStorage.getItem('hour-' + i);
-// hour.children('textarea').val(textArea);
 
+// Event listener for save button
+function save() {
+  var textArea = $(this).siblings('textarea');
+  var timeblockID = $(this).parent().attr('id');
+  localStorage.setItem(timeblockID, textArea.val());
+}
 
-// // Event listener for save button
-// function save() {
-//   var textArea = $(this).siblings('textarea');
-//   var timeblockID = $(this).parent().attr('id');
-//   localStorage.setItem(timeblockID, textArea.val());
-// }
-
-// buttonEl.on('click', save);
+buttonEl.on('click', save);
 
 
 
