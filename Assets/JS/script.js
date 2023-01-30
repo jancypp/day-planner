@@ -2,7 +2,7 @@
 // the code isn't run until the browser has finished rendering all the elements
 // in the html.
 
-// $(function () {
+$(function () {
 
   var dateEl = dayjs().format('MMMM D YYYY h:m A');
   $('#currentDay').text(dateEl); //setting current date and time in the header
@@ -35,7 +35,7 @@
 
   buttonEl.on('click', save);
 
-// });
+});
 
 
   //Psuedocode
