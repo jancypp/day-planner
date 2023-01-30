@@ -27,3 +27,16 @@ THEN the text for that event is saved in local storage
 WHEN I refresh the page
 THEN the saved events persist
 
+# Mock-up
+![alt="Top of day planner page"](./Assets/Images/Top%20page%20of%20day%20planner.png)
+
+![alt="Bottom of day planner page"](./Assets/Images/Bottom%20of%20page%20of%20day%20planner.png)
+
+## Link to site
+https://github.com/jancypp/day-planner
+
+## Link to Github repository
+https://github.com/jancypp/day-planner
+
+# License
+Refer to the license in the repo

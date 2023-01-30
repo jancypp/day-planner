@@ -3,65 +3,39 @@
 // in the html.
 
 // $(function () {
-// });
 
-// TODO: Add a listener for click events on the save button. This code should
-// use the id in the containing time-block as a key to save the user input in
-// local storage. HINT: What does `this` reference in the click listener
-// function? How can DOM traversal be used to get the "hour-x" id of the
-// time-block containing the button that was clicked? How might the id be
-// useful when saving the description in local storage?
-//
-// TODO: Add code to apply the past, present, or future class to each time
-// block by comparing the id to the current hour. HINTS: How can the id
-// attribute of each time-block be used to conditionally add or remove the
-// past, present, and future classes? How can Day.js be used to get the
-// current hour in 24-hour time?
-//
-// TODO: Add code to get any user input that was saved in localStorage and set
-// the values of the corresponding textarea elements. HINT: How can the id
-// attribute of each time-block be used to do this?
-//
-// TODO: Add code to display the current date in the header of the page.
+  var dateEl = dayjs().format('MMMM D YYYY h:m A');
+  $('#currentDay').text(dateEl); //setting current date and time in the header
+  var buttonEl = $('.btn'); //class within each div
+  var hourEl = dayjs().hour(); //calling the current hour
 
-
-
-var dateEl = dayjs().format('MMMM D YYYY h:m A');
-$('#currentDay').text(dateEl); //setting current date and time in the header
-var buttonEl = $('.btn'); //class within each div
-var hourEl = dayjs().hour(); //calling the current hour
-
-//for loop to run through each hour to determine if it's past, present or future compared to the current hour
-for (let i = 9; i < 18; i++) {
-  var hour = $('#hour-' + i)
-  if (i < hourEl) {
-    hour.addClass('past');
-  }
-  if (i == hourEl) {
-    hour.addClass('present')
-  }
-  if (i > hourEl) {
-    hour.addClass('future')
-    
-    var textArea = localStorage.getItem('#hour-' + i);
+  //for loop to run through each hour to determine if it's past, present or future compared to the current hour
+  for (let i = 9; i < 18; i++) {
+    var hour = $('#hour-' + i)
+    if (i < hourEl) {
+      hour.addClass('past');
+    }
+    if (i == hourEl) {
+      hour.addClass('present')
+    }
+    if (i > hourEl) {
+      hour.addClass('future')
+    }
+    var textArea = localStorage.getItem('hour-' + i);
     hour.children('textarea').val(textArea);
+  }
+
+  // Event listener for save button
+  function save() {
+    var textArea = $(this).siblings('textarea').first().val();
+    var timeblockID = $(this).parent().attr('id');
+    localStorage.setItem(timeblockID, textArea.val);
     console.log(textArea);
   }
-}
 
+  buttonEl.on('click', save);
 
-// Event listener for save button
-function save() {
-  var textArea = $(this).siblings('textarea');
-  var timeblockID = $(this).parent().attr('id');
-  localStorage.setItem(timeblockID, textArea.val());
-}
-
-buttonEl.on('click', save);
-
-
-
-
+// });
 
 
   //Psuedocode
