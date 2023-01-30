@@ -27,5 +27,3 @@ THEN the text for that event is saved in local storage
 WHEN I refresh the page
 THEN the saved events persist
 
-# Mock-up of how it's supposed to look after I'm done coding
-![alt="First page to start the quize"](./Screenshot%202023-01-30%20at%202.22.39%20PM.png)
