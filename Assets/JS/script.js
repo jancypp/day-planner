@@ -27,9 +27,9 @@ $(function () {
 
   // Event listener for save button
   function save() {
-    var textArea = $(this).siblings('textarea').first().val();
+    var textArea = $(this).siblings('textarea');
     var timeblockID = $(this).parent().attr('id');
-    localStorage.setItem(timeblockID, textArea.val);
+    localStorage.setItem(timeblockID, textArea.val());
     console.log(textArea);
   }
 
